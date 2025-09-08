@@ -9,11 +9,43 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
 
-<h1>HELLO WORLD</h1>
+
+<header>
+
+    <section class="Title">
+
+    </section>
+
+</header>
+
+<main>
+
+    <section class="Upcoming-tasks">
+
+    </section>
+
+    <section class="Ongoing-tasks">
+
+    </section>
+
+    <section class="Ongoing-tasks">
+
+    </section>
+
+</main>
+
+<footer>
+
+    <section>
+
+    </section>
+
+</footer>
 
 </body>
 </html>

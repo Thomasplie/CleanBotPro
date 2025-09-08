@@ -36,7 +36,15 @@ mysqli_close($db);
 
 <header>
 
-    <section class="Title">
+    <section class="Dashboard-Title">
+
+        <div class="Title">
+
+        </div>
+
+        <div class="Settings-button">
+
+        </div>
 
     </section>
 
@@ -50,9 +58,22 @@ mysqli_close($db);
 
     <section class="Ongoing-tasks">
 
+        <button id="startBtn">Start new Task</button>
+
+        <div class="progress-container">
+            <div id="progressFill" class="progress-bar"></div>
+        </div>
+        <p id="status">Klaar om te beginnen</p>
+
+        <script src="script.js"></script>
+
     </section>
 
-    <section class="Ongoing-tasks">
+    <section class="Task-Display">
+
+    </section>
+
+    <section class="Dashboard-Menu">
 
     </section>
 
@@ -60,9 +81,15 @@ mysqli_close($db);
 
 <footer>
 
-    <section>
+    <nav>
 
-    </section>
+        <section class="Nav-buttons">
+            <div>
+
+            </div>
+        </section>
+
+    </nav>
 
 </footer>
 

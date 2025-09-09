@@ -1,24 +1,24 @@
 <?php
 // Gegevens voor de connectie
-$host       = '127.0.0.1';
-$username   = 'root';
-$password   = '';
-$database   = 'cleanbotpro';
-
-$db = mysqli_connect($host, $username, $password, $database)
-or die('Error: '.mysqli_connect_error());
-
-$query = "SELECT * FROM tasks";
-
-$result = mysqli_query($db, $query)
-or die('Error '.mysqli_error($db).' with query '.$query);
-
-$tasks = [];
-while($row = mysqli_fetch_assoc($result)) {
-    $tasks[] = $row;
-}
-
-mysqli_close($db);
+//$host       = '127.0.0.1';
+//$username   = 'root';
+//$password   = '';
+//$database   = 'cleanbotpro';
+//
+//$db = mysqli_connect($host, $username, $password, $database)
+//or die('Error: '.mysqli_connect_error());
+//
+//$query = "SELECT * FROM tasks";
+//
+//$result = mysqli_query($db, $query)
+//or die('Error '.mysqli_error($db).' with query '.$query);
+//
+//$tasks = [];
+//while($row = mysqli_fetch_assoc($result)) {
+//    $tasks[] = $row;
+//}
+//
+//mysqli_close($db);
 ?>
 
 <!doctype html>

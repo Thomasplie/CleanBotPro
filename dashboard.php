@@ -2,7 +2,6 @@
 require_once 'includes/database.php';
 
 
-
 ?>
 
 <!doctype html>

@@ -4,3 +4,5 @@ CREATE TABLE robot_tasks (
                              day TINYINT NOT NULL,         -- 1=Monday … 7=Sunday
                              time TIME NOT NULL
 );
+
+-- Use this to make a new table

@@ -12,7 +12,7 @@ if(isset ($_POST['submit'])) {
     $errors = [];
 
     if(empty($errors)){
-        $query = "UPDATE products SET name = '$name' WHERE id = $id";
+        $query = "UPDATE robot_tasks SET name = '$name' WHERE id = $id";
 
         $result = mysqli_query($db, $query);
         if($result) {

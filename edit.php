@@ -5,14 +5,22 @@ if(isset ($_POST['submit'])) {
     $name = mysqli_escape_string($db, $_POST['name']);
 
     // valideer de data
-    if ($name === '') {
-        $error['name'] = 'Naam mag niet leeg zijn';
+    if ($taskName === '') {
+        $error['task_name'] = 'Naam mag niet leeg zijn';
+    }
+
+    if ($day === '') {
+        $error['day'] = 'Dag mag niet leeg zijn';
+    }
+
+    if ($time === '') {
+        $error['time'] = 'Tijd mag niet leeg zijn';
     }
 
     $errors = [];
 
     if(empty($errors)){
-        $query = "UPDATE products SET name = '$name' WHERE id = $id";
+        $query = "UPDATE robot_tasks SET task_name = '$taskName', day = '$day', time = '$time' WHERE id = $id";
 
         $result = mysqli_query($db, $query);
         if($result) {
@@ -38,7 +46,7 @@ if (isset($_GET['id'])) {
     $id = mysqli_escape_string($db, $_GET['id']);
     echo ($id);
 
-    $query = "SELECT * FROM products WHERE id = $id";
+    $query = "SELECT * FROM robot_tasks WHERE id = $id";
     $result = mysqli_query($db, $query);
 
     if (mysqli_num_rows($result) === 1) {

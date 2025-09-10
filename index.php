@@ -1,18 +1,35 @@
 <?php
 require_once 'includes/database.php';
 
-//
-//$query = "SELECT * FROM tasks";
-//
-//$result = mysqli_query($db, $query)
-//or die('Error '.mysqli_error($db).' with query '.$query);
-//
-//$tasks = [];
-//while($row = mysqli_fetch_assoc($result)) {
-//    $tasks[] = $row;
-//}
-//
-//mysqli_close($db);
+// determine day: use GET param if present, otherwise today's weekday (1 = Monday)
+$day = isset($_GET['day']) ? (int) $_GET['day'] : (int) date('N');
+if ($day < 1 || $day > 7) {
+    $day = (int) date('N');
+}
+
+function dayName($n) {
+    $days = [
+            1 => 'Monday', 2 => 'Tuesday', 3 => 'Wednesday',
+            4 => 'Thursday', 5 => 'Friday', 6 => 'Saturday', 7 => 'Sunday',
+    ];
+    return $days[(int)$n] ?? 'Unknown';
+}
+
+// fetch tasks for the selected day
+$tasks = [];
+$sql = "SELECT id, task_name, day, time FROM robot_tasks WHERE day = ? ORDER BY time";
+if ($stmt = mysqli_prepare($db, $sql)) {
+    mysqli_stmt_bind_param($stmt, 'i', $day);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $tasks[] = $row;
+    }
+    mysqli_stmt_close($stmt);
+} else {
+    echo '<div class="notification is-danger">Database error: ' . htmlspecialchars(mysqli_error($db)) . '</div>';
+}
+
 ?>
 
 <!doctype html>
@@ -71,6 +88,38 @@ require_once 'includes/database.php';
                     <div class="calendar-date">16</div>
                 </div>
             </div>
+
+            <section class="box">
+                <h3 class="title is-5">Tasks for <?= htmlspecialchars(dayName($day)) ?></h3>
+                <?php if (empty($tasks)): ?>
+                    <div class="notification is-warning">
+                        No tasks scheduled for <?= htmlspecialchars(dayName($day)) ?>.
+                    </div>
+                <?php else: ?>
+                    <table class="table is-fullwidth is-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Task Name</th>
+                            <th>Time</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($tasks as $task): ?>
+                            <tr>
+                                <td><?= (int)$task['id'] ?></td>
+                                <td><?= htmlspecialchars($task['task_name']) ?></td>
+                                <td><?= htmlspecialchars($task['time']) ?></td>
+                                <td><a class="button is-small is-info" href="edit.php?id=<?= urlencode($task['id']) ?>">Edit</a></td>
+                                <td><a class="button is-small is-danger" href="delete.php?id=<?= urlencode($task['id']) ?>">Delete</a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
+            </section>
 
             <!-- Ongoing Task -->
             <div class="progress-section">

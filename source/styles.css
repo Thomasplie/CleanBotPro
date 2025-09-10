@@ -1,125 +1,443 @@
-/* Global CSS */
+/*!* Global CSS *!*/
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*!* Header CSS - Title & Settings Button *!*/
+
+/*.header-container {*/
+/*    width: 100vw;*/
+/*    height: 10vh;*/
+/*    border: 2px solid black;*/
+/*    background-color: aquamarine;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.Dashboard-Title {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.Title {*/
+/*    flex: 1;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.big-brain,*/
+/*.Settings-button {*/
+/*    flex: 1;*/
+/*    text-align: right;*/
+/*}*/
+
+/*!*Main CSS - Task Schedule Calender view & Task feed *!*/
+
+/*.main-container {*/
+/*    width: 100vw;*/
+/*    height: 80vh;*/
+/*    border: 2px solid black;*/
+/*    background-color: red;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.Upcoming-tasks {*/
+/*    width: 50vw;*/
+/*    height: 30vh;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.Ongoing-tasks {*/
+/*    width: 50vw;*/
+/*    height: 30vh;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*!*Footer CSS - Navigation Menu to other options*!*/
+
+/*.footer-container {*/
+/*    width: 100vw;*/
+/*    height: 10vh;*/
+/*    border: 2px solid black;*/
+/*    background-color: midnightblue;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*nav {*/
+/*    display: flex;*/
+/*    justify-content: space-evenly;*/
+/*    gap: 40px;*/
+/*}*/
+
+
+/* CSS EXTRA'S - Buttons, Links, Transitions... */
+
+/*button {*/
+/*    padding: 10px 20px;*/
+/*    font-size: 16px;*/
+/*    border: none;*/
+/*    border-radius: 8px;*/
+/*    cursor: pointer;*/
+/*    background: #2196F3;*/
+/*    color: white;*/
+/*    transition: background 0.3s;*/
+/*}*/
+
+/*button:hover {*/
+/*    background: gray;*/
+/*}*/
+
+/*.progress-container {*/
+/*    width: 80%;*/
+/*    max-width: 500px;*/
+/*    height: 30px;*/
+/*    border: 2px solid #333;*/
+/*    border-radius: 8px;*/
+/*    margin: 20px auto;*/
+/*    background: #eee;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.progress-bar {*/
+/*    height: 100%;*/
+/*    width: 0;*/
+/*    background: linear-gradient(90deg, #2196F3, #0d8ddb);*/
+/*    transition: width 0.2s;*/
+/*}*/
+
+/*#status {*/
+/*    margin-top: 10px;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/* CleanBotPRO Pure CSS Styles */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Header CSS - Title & Settings Button */
-
-.header-container {
-    width: 100vw;
-    height: 10vh;
-    border: 2px solid black;
-    background-color: aquamarine;
-    display: flex;
-    justify-content: center;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
 }
 
-.Dashboard-Title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.Title {
-    flex: 1;
+.header {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-.big-brain,
-.Settings-button {
-    flex: 1;
-    text-align: right;
-}
-
-/*Main CSS - Task Schedule Calender view & Task feed */
-
-.main-container {
-    width: 100vw;
-    height: 80vh;
-    border: 2px solid black;
-    background-color: red;
+.design-selector {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
     justify-content: center;
-    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
 }
 
-.Upcoming-tasks {
-    width: 50vw;
-    height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Ongoing-tasks {
-    width: 50vw;
-    height: 30vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/*Footer CSS - Navigation Menu to other options*/
-
-.footer-container {
-    width: 100vw;
-    height: 10vh;
-    border: 2px solid black;
-    background-color: midnightblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-nav {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 40px;
-}
-
-
-/* CSS EXTRA'S - Buttons, Links, Transitions... */
-
-button {
+.selector-btn {
     padding: 10px 20px;
-    font-size: 16px;
-    border: none;
+    border: 2px solid #ddd;
+    background: white;
     border-radius: 8px;
     cursor: pointer;
-    background: #2196F3;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.selector-btn.active {
+    background: #0066cc;
     color: white;
-    transition: background 0.3s;
+    border-color: #0066cc;
 }
 
-button:hover {
-    background: gray;
+.selector-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.progress-container {
-    width: 80%;
-    max-width: 500px;
-    height: 30px;
-    border: 2px solid #333;
-    border-radius: 8px;
-    margin: 20px auto;
-    background: #eee;
+.phone-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.phone {
+    width: 375px;
+    height: 812px;
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
 }
 
-.progress-bar {
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, #2196F3, #0d8ddb);
-    transition: width 0.2s;
+.header-bar {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#status {
-    margin-top: 10px;
+.header-bar h1 {
+    font-size: 24px;
     font-weight: bold;
 }
 
+.content {
+    padding: 24px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.calendar-day {
+    text-align: center;
+}
+
+.calendar-day-label {
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.calendar-date {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.progress-section {
+    margin-bottom: 24px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 60%;
+    transition: width 0.3s ease;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.start-button {
+    width: 100%;
+    height: 64px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: translateY(-1px);
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.nav-label {
+    font-size: 12px;
+}
+
+.description-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.description-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.description-card:hover {
+    transform: translateY(-5px);
+}
+
+.description-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Color pallette & Coloring */
+
+.design-1 {
+    background: #0f172a;
+    color: white;
+}
+
+.design-1 .header-bar {
+    background: linear-gradient(135deg, #0891b2, #1d4ed8);
+}
+
+.design-1 .section-title {
+    color: #67e8f9;
+}
+
+.design-1 .calendar-date {
+    background: #1e293b;
+    color: #cbd5e1;
+    border: 1px solid #334155;
+}
+
+.design-1 .calendar-date.active {
+    background: linear-gradient(135deg, #06b6d4, #1d4ed8);
+    color: white;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+.design-1 .progress-bar {
+    background: #1e293b;
+}
+
+.design-1 .progress-fill {
+    background: linear-gradient(90deg, #06b6d4, #3b82f6);
+    box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+}
+
+.design-1 .start-button {
+    background: linear-gradient(135deg, #06b6d4, #1d4ed8);
+    color: white;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+}
+
+
+.cyan {
+    color: #0891b2;
+}
+
+.purple {
+    color: #9333ea;
+}
+
+.green {
+    color: #059669;
+}
+
+.orange {
+    color: #ea580c;
+}
+
+@media (max-width: 768px) {
+    .phone {
+        width: 320px;
+        height: 690px;
+    }
+
+    .design-selector {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}

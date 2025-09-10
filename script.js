@@ -4,6 +4,8 @@ function init() {
     const startBtn = document.getElementById("startBtn");
     const progressEl = document.getElementById("progressFill");
     const statusEl = document.getElementById("status");
+    const percentEl = document.getElementById("progressPercent");
+
 
     // Adjust width
     function updateProgressBar(downloaded, total) {
@@ -31,6 +33,8 @@ function init() {
             updateProgressBar(downloaded, total);
 
             const percentage = Math.floor((downloaded / total) * 100);
+            percentEl.textContent = percentage + "%";
+
             if (percentage < 40) {
                 statusEl.textContent = "📥 Began cleaning...";
             } else if (percentage < 80) {

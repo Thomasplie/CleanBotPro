@@ -81,6 +81,19 @@ mysqli_close($db);
             </tbody>
         </table>
     </section>
+
+    <section class="field">
+        <label class="label">View by day</label>
+        <div class="control">
+            <div class="buttons">
+                <?php for ($i = 1; $i <= 7; $i++): ?>
+                    <a class="button is-link" href="dayDetails.php?day=<?= $i ?>">
+                        <?= htmlspecialchars(dayName($i)) ?>
+                    </a>
+                <?php endfor; ?>
+            </div>
+        </div>
+    </section>
 </main>
 </body>
 </html>

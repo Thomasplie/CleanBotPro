@@ -12,7 +12,7 @@ function init() {
     const monday = new Date(today);
 
     // ---- Kalender logica ----
-    monday.setDate(today.getDate() - ((today.getDay() + 6) % 7)); // find Monday
+    monday.setDate(today.getDate() - ((today.getDay() + 6) % 7));
 
     const days = document.querySelectorAll('.calendar-day');
     days.forEach((dayEl, idx) => {
@@ -32,6 +32,29 @@ function init() {
                 dateEl.classList.add('active');
             }
         }
+
+        // Voeg data-day toe voor fetch
+        dayEl.dataset.day = idx + 1;
+    });
+
+    // ---- Kalender click handlers ----
+    days.forEach(dayEl => {
+        dayEl.addEventListener('click', () => {
+            const day = dayEl.dataset.day;
+
+            fetch(`SQL-Testing/dayDetails.php?day=${day}&ajax=1`)
+                .then(res => res.text())
+                .then(html => {
+                    if (tasksBox) {
+                        tasksBox.innerHTML = html;
+                    }
+
+                    // Highlight aangeklikte dag
+                    days.forEach(d => d.querySelector('.calendar-date')?.classList.remove('active'));
+                    dayEl.querySelector('.calendar-date')?.classList.add('active');
+                })
+                .catch(err => console.error(err));
+        });
     });
 
     // ---- Progress bar logica ----
@@ -45,7 +68,7 @@ function init() {
         progressEl.style.width = percentage + "%";
     }
 
-    // Start knop logica
+    // ---- Start knop logica ----
     startBtn.addEventListener("click", () => {
         let downloaded = 0;
         const total = 500; // voorbeeld grootte
@@ -61,42 +84,14 @@ function init() {
             const percentage = Math.floor((downloaded / total) * 100);
             percentEl.textContent = percentage + "%";
 
-            if (percentage < 40) {
-                statusEl.textContent = "📥 Began cleaning...";
-            } else if (percentage < 80) {
-                statusEl.textContent = "⚙️ Tidying up...";
-            } else if (percentage < 100) {
-                statusEl.textContent = "🔄 Vacuuming last corners...";
-            } else {
+            if (percentage < 40) statusEl.textContent = "📥 Began cleaning...";
+            else if (percentage < 80) statusEl.textContent = "⚙️ Tidying up...";
+            else if (percentage < 100) statusEl.textContent = "🔄 Vacuuming last corners...";
+            else {
                 statusEl.textContent = "✅ Deepclean complete!";
                 clearInterval(interval);
             }
         }, 300);
     });
-
-    // ---- Kalender click handlers ----
-    days.forEach(dayEl => {
-        dayEl.addEventListener('click', () => {
-            const day = dayEl.dataset.day;
-
-            fetch(`dashboard.php?day=${day}`)
-                .then(res => res.text())
-                .then(html => {
-                    // Parse de volledige HTML
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-
-                    // Pak alleen de tasks-box
-                    const newBox = doc.getElementById('tasks-box');
-                    if (newBox && tasksBox) {
-                        tasksBox.innerHTML = newBox.innerHTML;
-                    }
-
-                    // Optioneel: highlight aangeklikte dag
-                    days.forEach(d => d.querySelector('.calendar-date')?.classList.remove('active'));
-                    dayEl.querySelector('.calendar-date')?.classList.add('active');
-                })
-                .catch(err => console.error(err));
-        });
-    });
 }
+

@@ -324,8 +324,9 @@ body {
     right: 0;
     padding: 12px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 40px;
 }
 
 .nav-item {

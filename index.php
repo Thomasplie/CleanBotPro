@@ -88,13 +88,20 @@ require_once 'includes/database.php';
             <!-- Main Grid -->
             <div class="main-grid">
                 <!-- Pick a Task -->
-                <div>
+                <div class="button-list">
                     <h3 class="section-title">Pick a Task</h3>
                     <button id="startBtn" class="start-button">
                         <svg class="nav-icon" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
                         Start
+                    </button>
+                    <button id="startBtn" class="start-button">
+                        <a href="create.php" style="text-decoration: none; color: inherit;">
+                            <svg class="nav-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            Create new task
                     </button>
                 </div>
 
@@ -119,24 +126,29 @@ require_once 'includes/database.php';
 
         <!-- Bottom Navigation -->
         <div class="bottom-nav">
+            <a href="dashboard.php" style="text-decoration: none; color: inherit;">
             <div class="nav-item active">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
                 </svg>
                 <span class="nav-label">Tasks</span>
             </div>
+            </a>
+
             <div class="nav-item">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                 </svg>
                 <span class="nav-label">Home</span>
             </div>
+
             <div class="nav-item">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
                 </svg>
                 <span class="nav-label">Alerts</span>
             </div>
+
             <div class="nav-item">
                 <svg class="nav-icon" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>

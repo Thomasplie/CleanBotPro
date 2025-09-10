@@ -59,37 +59,37 @@ if ($stmt = mysqli_prepare($db, $sql)) {
             <!-- Upcoming Tasks -->
             <h2 class="section-title">Upcoming Tasks</h2>
             <div class="calendar-grid">
-                <div class="calendar-day">
+                <div class="calendar-day" data-day="1">
                     <div class="calendar-day-label">Mon</div>
                     <div class="calendar-date">10</div>
                 </div>
-                <div class="calendar-day">
+                <div class="calendar-day" data-day="2">
                     <div class="calendar-day-label">Tue</div>
-                    <div class="calendar-date active">11</div>
+                    <div class="calendar-date">11</div>
                 </div>
-                <div class="calendar-day">
+                <div class="calendar-day" data-day="3">
                     <div class="calendar-day-label">Wed</div>
                     <div class="calendar-date">12</div>
                 </div>
-                <div class="calendar-day">
+                <div class="calendar-day" data-day="4">
                     <div class="calendar-day-label">Thu</div>
                     <div class="calendar-date">13</div>
                 </div>
-                <div class="calendar-day">
+                <div class="calendar-day" data-day="5">
                     <div class="calendar-day-label">Fri</div>
                     <div class="calendar-date">14</div>
                 </div>
-                <div class="calendar-day">
+                <div class="calendar-day" data-day="6">
                     <div class="calendar-day-label">Sat</div>
                     <div class="calendar-date">15</div>
                 </div>
-                <div class="calendar-day">
+                <div class="calendar-day" data-day="7">
                     <div class="calendar-day-label">Sun</div>
                     <div class="calendar-date">16</div>
                 </div>
             </div>
 
-            <section class="box">
+            <section class="box" id="tasks-box">
                 <h3 class="title is-5">Tasks for <?= htmlspecialchars(dayName($day)) ?></h3>
                 <?php if (empty($tasks)): ?>
                     <div class="notification is-warning">

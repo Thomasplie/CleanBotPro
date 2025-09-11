@@ -88,7 +88,7 @@ function init() {
             else if (percentage < 80) statusEl.textContent = "⚙️ Tidying up...";
             else if (percentage < 100) statusEl.textContent = "🔄 Vacuuming last corners...";
             else {
-                statusEl.textContent = "✅ Deepclean complete!";
+                statusEl.textContent = "✅ Task complete!";
                 clearInterval(interval);
             }
         }, 300);
